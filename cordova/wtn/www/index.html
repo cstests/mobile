@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/onsenui/css/onsenui.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/onsenui/css/onsen-css-components.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- cordova and ui js -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="bower_components/onsenui/js/onsenui.js"></script>
+    <!-- google maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=ADD_YOUR_KEY" type="text/javascript"></script>
+    <!-- app scripts -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <title>Walking Through Naboo</title>
+  </head>
+  <body>
+    <!-- navigator for fab &c. -->
+    <ons-navigator id="navigator" page="splitter.html"></ons-navigator>
+
+    <!-- splitter component for menu -->
+    <ons-template id="splitter.html">
+      <ons-splitter>
+
+        <ons-splitter-side id="menu" side="left" width="220px" collapse>
+          <ons-page id="menu.html">
+            <ons-toolbar>
+              <div class="center">Star Wars</div>
+            </ons-toolbar>
+            <ons-list>
+              <ons-list-item url="home.html" class="menu-link" tappable>home</ons-list-item>
+              <ons-list-item url="maps.html" class="menu-link" tappable>maps</ons-list-item>
+              <ons-list-item url="join.html" class="menu-link" tappable>join</ons-list-item>
+              <ons-list-item url="host.html" class="menu-link" tappable>host</ons-list-item>
+              <ons-list-item url="settings.html" class="menu-link" tappable>settings</ons-list-item>
+              <ons-list-item url="help.html" class="menu-link" tappable>help</ons-list-item>
+            </ons-list>
+          </ons-page>
+        </ons-splitter-side>
+        <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
+      </ons-splitter>
+    </ons-template>
+
+    <!-- wtn - home page -->
+    <ons-template id="home.html">
+      <ons-page id="home">
+        <!-- page toolbar -->
+        <ons-toolbar>
+          <div class="left">
+            <ons-toolbar-button class="menu-open">
+              <!-- hamburger menu -->
+              <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+          </div>
+          <div class="center">Star Wars</div>
+          <div class="right">
+            <ons-toolbar-button>
+              <!-- search option -->
+              <ons-icon icon="md-search"></ons-icon>
+            </ons-toolbar-button>
+          </div>
+        </ons-toolbar>
+        <!-- define primary action button for page - md plus icon -->
+        <ons-fab position="bottom right">
+          <ons-icon id="fab-open" icon="md-plus"></ons-icon>
+        </ons-fab>
+        <h4>home page</h4>
+        <!-- homeContent - home content -->
+        <div id="homeContent" class="page-content">
+
+        </div>
+      </ons-page>
+    </ons-template>
+
+<!--
+- main menu pages
+  - maps
+  - join
+  - host
+  - settings
+  - help
+-->
+
+    <!-- wtn - maps page -->
+    <ons-template id="maps.html">
+      <ons-page id="maps">
+        <!-- page toolbar -->
+        <ons-toolbar>
+          <div class="left">
+            <ons-toolbar-button class="menu-open">
+              <!-- hamburger menu -->
+              <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+          </div>
+          <div class="center">maps</div>
+          <div class="right">
+            <ons-toolbar-button>
+              <!-- search option -->
+              <ons-icon icon="md-search"></ons-icon>
+            </ons-toolbar-button>
+          </div>
+        </ons-toolbar>
+        <h4>maps</h4>
+        <!-- mapsContent - maps content -->
+        <div id="mapsContent" class="page-content">
+
+        </div>
+        <!-- add container for map-->
+        <div id="map"></div>
+      </ons-page>
+    </ons-template>
+
+    <!-- wtn - join page -->
+    <ons-template id="join.html">
+      <ons-page id="join">
+        <!-- page toolbar -->
+        <ons-toolbar>
+          <div class="left">
+            <ons-toolbar-button class="menu-open">
+              <!-- hamburger menu -->
+              <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+          </div>
+          <div class="center">join</div>
+          <div class="right">
+            <ons-toolbar-button>
+              <!-- search option -->
+              <ons-icon icon="md-search"></ons-icon>
+            </ons-toolbar-button>
+          </div>
+        </ons-toolbar>
+        <h4>join</h4>
+        <!-- joinContent - join content -->
+        <div id="joinContent" class="page-content">
+
+        </div>
+      </ons-page>
+    </ons-template>
+
+    <!-- wtn - host page -->
+    <ons-template id="host.html">
+      <ons-page id="host">
+        <!-- page toolbar -->
+        <ons-toolbar>
+          <div class="left">
+            <ons-toolbar-button class="menu-open">
+              <!-- hamburger menu -->
+              <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+          </div>
+          <div class="center">host</div>
+          <div class="right">
+            <ons-toolbar-button>
+              <!-- search option -->
+              <ons-icon icon="md-search"></ons-icon>
+            </ons-toolbar-button>
+          </div>
+        </ons-toolbar>
+        <h4>host</h4>
+        <!-- hostContent - host content -->
+        <div id="hostContent" class="page-content">
+
+        </div>
+      </ons-page>
+    </ons-template>
+
+    <!-- wtn - settings page -->
+    <ons-template id="settings.html">
+      <ons-page id="settings">
+        <!-- page toolbar -->
+        <ons-toolbar>
+          <div class="left">
+            <ons-toolbar-button class="menu-open">
+              <!-- hamburger menu -->
+              <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+          </div>
+          <div class="center">settings</div>
+          <div class="right">
+            <ons-toolbar-button>
+              <!-- search option -->
+              <ons-icon icon="md-search"></ons-icon>
+            </ons-toolbar-button>
+          </div>
+        </ons-toolbar>
+        <h4>settings</h4>
+        <!-- settingsContent - settings content -->
+        <div id="settingsContent" class="page-content">
+
+        </div>
+      </ons-page>
+    </ons-template>
+
+    <!-- wtn - help page -->
+    <ons-template id="help.html">
+      <ons-page id="help">
+        <!-- page toolbar -->
+        <ons-toolbar>
+          <div class="left">
+            <ons-toolbar-button class="menu-open">
+              <!-- hamburger menu -->
+              <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+          </div>
+          <div class="center">help</div>
+          <div class="right">
+            <ons-toolbar-button>
+              <!-- search option -->
+              <ons-icon icon="md-search"></ons-icon>
+            </ons-toolbar-button>
+          </div>
+        </ons-toolbar>
+        <h4>help</h4>
+        <!-- helpContent - help content -->
+        <div id="helpContent" class="page-content">
+
+        </div>
+      </ons-page>
+    </ons-template>
+
+<!--
+- primary action pages
+  - page for fab
+-->
+    <!-- fab page -->
+    <ons-template id="fab.html">
+      <ons-page id="fab">
+        <ons-toolbar>
+          <div class="left"><ons-back-button>Back</ons-back-button></div>
+          <div class="center"></div>
+        </ons-toolbar>
+        <h4>fab page</h4>
+        <!-- fabContent - fab content -->
+        <div id="fabContent" class="page-content">
+
+        </div>
+      </ons-page>
+    </ons-template>
+
+  </body>
+</html>
