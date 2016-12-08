@@ -114,9 +114,13 @@
 				//set required options
 				var mapOptions = {
 					center: latlong,
-					zoom: 3,
+					zoom: 1,
 					scrollwheel: false,
 					scaleControl: false,
+					streetViewControl: false,
+					zoomControlOptions: {
+						position: google.maps.ControlPosition.TOP_RIGHT
+					},
 					backgroundColor: '#ffffff'
 				//	disableDefaultUI: true
 				};
@@ -133,13 +137,12 @@
 var draftImage = new google.maps.ImageMapType({
   getTileUrl: function(ll, z) {
     var X = ll.x % (1 << z);  // wrap
-		//return specified custom map tiles...
-    return "maps/image1/" + z + "/" + X + "/" + ll.y + ".jpg";
+    return "maps/image4/tiles-upload/" + z + "/" + X + "/" + ll.y + ".jpg";
   },
   tileSize: new google.maps.Size(256, 256),
   isPng: false,
-  minZoom: 3,
-  maxZoom: 6,
+  minZoom: 1,
+  maxZoom: 5,
   name: "Walking Through Naboo - Map 1",
   alt: "WTN - Map 1"
 });
